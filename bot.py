@@ -14,12 +14,13 @@ load_dotenv(find_dotenv())
 
 loader = TextLoader("./mainPrompt.txt")
 documents = loader.load()
-text_splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=100)
+text_splitter = CharacterTextSplitter(chunk_size=350, chunk_overlap=100)
 texts = text_splitter.split_documents(documents)
 
 embeddings = OpenAIEmbeddings()
 retriever = Chroma.from_documents(texts, embeddings).as_retriever()
-chat = ChatOpenAI(temperature=0)
+
+chat = ChatOpenAI(temperature=0.5, max_tokens=4000)
 
 prompt_template = """You are a helpful dicord bot that provides user with great responses related to marketing, copywriting and social media strategies.
 

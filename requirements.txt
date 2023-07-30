@@ -2,3 +2,4 @@ discord.py
 langchain
 openai
 chromadb
+python-dotenv
