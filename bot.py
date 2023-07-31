@@ -20,7 +20,7 @@ texts = text_splitter.split_documents(documents)
 embeddings = OpenAIEmbeddings()
 retriever = Chroma.from_documents(texts, embeddings).as_retriever()
 
-chat = ChatOpenAI(temperature=0.5, max_tokens=4000)
+chat = ChatOpenAI(temperature=0.5)
 
 prompt_template = """You are a helpful dicord bot that provides user with great responses related to marketing, copywriting and social media strategies.
 
